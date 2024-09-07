@@ -1,0 +1,50 @@
+#NOTE - Calculates voltage for user
+def calculate_voltage(current, resistance):
+    return current * resistance
+
+#NOTE - Calculates current for user
+def calculate_current(voltage, resistance):
+    return voltage / resistance
+
+#NOTE - Calculates resistance for user
+def calculate_resistance(voltage, current):
+    return voltage / current
+
+#SECTION - Prints options
+def main():
+    print("Choose what you want to calculate:")
+    print("1. Voltage")
+    print("2. Current")
+    print("3. Resistance")
+    
+    #SECTION - Gives the user choices
+    option = input("Enter the number of your choice (1/2/3): ").strip()
+    
+    #SECTION - Opt voltage
+    if option == "1":
+        current = float(input("Enter current (in amps): ").strip())
+        resistance = float(input("Enter resistance (in ohms): ").strip())
+        voltage = calculate_voltage(current, resistance)
+        print(f"Voltage = {voltage} volts")
+
+    #SECTION - Opt current    
+    elif option == "2":
+        voltage = float(input("Enter voltage (in volts): ").strip())
+        resistance = float(input("Enter resistance (in ohms): ").strip())
+        current = calculate_current(voltage, resistance)
+        print(f"Current = {current} amps")
+
+    #SECTION - Opt resistance    
+    elif option == "3":
+        voltage = float(input("Enter voltage (in volts): ").strip())
+        current = float(input("Enter current (in amps): ").strip())
+        resistance = calculate_resistance(voltage, current)
+        print(f"Resistance = {resistance} ohms")
+
+    #NOTE - Error if incorrect input    
+    else:
+        print("Error, option not found...")
+
+#NOTE - Ensures no imported scripts
+if __name__ == "__main__":
+    main()
